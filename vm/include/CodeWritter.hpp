@@ -8,15 +8,25 @@ using std::ofstream;
 using std::string;
 class CodeWritter {
 private:
-  ofstream writeFile;
+  string pushAssemblyTemplate;
+  string popAssemblyTemplate;
+  string arithmeticAssemblyTemplate;
 
 public:
   CodeWritter();
-  void setFileName(string fileName);
-  void writeArithmetic(string command);
-  void writePushPop(COMMAND_TYPE commandType, string segment, int index);
+  // string getInitAssembly(void);
+  void setPushAssemblyTemplate(void);
+  void setPopAssemblyTemplate(void);
+  void setArithmeticAssemblyTemplate(void);
+  string getPushAssembly(COMMAND_TYPE commandType, string segment, int index);
+  string getPopAssembly(COMMAND_TYPE commandType, string segment, int index);
+  string getArithmeticAssembly(string operation);
+  // ~CodeWritter();
+  // void writeArithmetic(string command);
+  // void writePush(COMMAND_TYPE commandType, string segment, int index);
+  // void writePop(COMMAND_TYPE commandType, string segment, int index);
+  // void setWriteFile(string fileName);
   // closing the output file
   // void close
-  ~CodeWritter();
 };
 #endif
